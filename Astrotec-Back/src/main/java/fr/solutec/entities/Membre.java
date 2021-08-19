@@ -22,7 +22,7 @@ public class Membre {
 	@Id @GeneratedValue
 	private Long id;
 	@NonNull private String email;
-	@NonNull  String pseudo;
+	@NonNull private String pseudo;
 	@NonNull private String mdp;
 	private String nom;
 	private String prenom;
