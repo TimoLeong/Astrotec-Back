@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AstrotecBackApplication implements CommandLineRunner{
 	
 	public static void main(String[] args) {
+		SpringApplication.run(AstrotecBackApplication.class, args);
 		System.out.println("Lancement Terminé");
 	}
 
