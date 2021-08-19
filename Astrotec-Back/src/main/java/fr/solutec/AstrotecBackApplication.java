@@ -10,4 +10,9 @@ public class AstrotecBackApplication {
 		System.out.println("Lancement Terminé");
 	}
 
+	private void run() {
+		// TODO Auto-generated method stub
+
+	}
+
 }
