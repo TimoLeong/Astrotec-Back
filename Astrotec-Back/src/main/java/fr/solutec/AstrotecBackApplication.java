@@ -1,18 +1,19 @@
 package fr.solutec;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AstrotecBackApplication {
-
+public class AstrotecBackApplication implements CommandLineRunner{
+	
 	public static void main(String[] args) {
 		System.out.println("Lancement Terminé");
 	}
 
-	private void run() {
-		// TODO Auto-generated method stub
-
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("Début Instruction");
 	}
 
 }
