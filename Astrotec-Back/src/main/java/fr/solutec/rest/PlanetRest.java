@@ -8,22 +8,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.solutec.entities.Planete;
-import fr.solutec.repositories.PlaneteRepository;
+import fr.solutec.entities.Planet;
+import fr.solutec.repositories.PlanetRepository;
 
 @RestController
 @CrossOrigin("*")
-public class PlaneteRest {
+public class PlanetRest {
 	@Autowired
-	private PlaneteRepository planeteRepo;
+	private PlanetRepository planetRepo;
 
-	@GetMapping("planete")
-	public Iterable<Planete> getAllPanete() {
-		return planeteRepo.findAll();
+	@GetMapping("planet")
+	public Iterable<Planet> getAllPanete() {
+		return planetRepo.findAll();
 	}
 
-	@GetMapping("planete/{id}")
-	public Optional<Planete> getPlanete(@PathVariable Long id) {
-		return planeteRepo.findById(id);
+	@GetMapping("planet/{id}")
+	public Optional<Planet> getPlanete(@PathVariable Long id) {
+		return planetRepo.findById(id);
 	}
 }
