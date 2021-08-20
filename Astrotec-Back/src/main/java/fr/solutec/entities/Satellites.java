@@ -19,7 +19,6 @@ public class Satellites {
 	private Long radius;
 	private Long density;
 	private Long magnitude;
-	
  
  /*planet: owning planet of the satellite
 name: name of the satellite
