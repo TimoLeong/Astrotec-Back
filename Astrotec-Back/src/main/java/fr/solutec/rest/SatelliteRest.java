@@ -1,5 +1,6 @@
 package fr.solutec.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,15 @@ public class SatelliteRest {
 	private Optional<Satellite> getSatellite(@PathVariable Long id) {
 		return satelliteRepo.findById(id);
 	}
-	@GetMapping("satellite/planet")
-	private Iterable<Satellite> getPlanetSatellite() {
-		Long a =(long) 1;
-		return satelliteRepo.findByPlanetId(a);
+	
+	@GetMapping("satellite/planet/{id}")
+	private List<Satellite> getPlanetSatellite(@PathVariable Long id) {
+		return satelliteRepo.findByplanetid(id);
 	}
-}
+	 
+	@GetMapping("satellite/name/{name}")
+	private List<Satellite> getSatelliteByName(@PathVariable String name){
+		return satelliteRepo.findByName(name);
+	}
+		
+}	

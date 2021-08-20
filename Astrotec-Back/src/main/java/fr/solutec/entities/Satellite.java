@@ -13,8 +13,9 @@ import lombok.NoArgsConstructor;
 public class Satellite {
 	@Id@GeneratedValue
 	private Long id;
+
+	private Long planetid;
 	private String name;
-	private String planetId;
 	private Long gm;
 	private Long radius;
 	private Long density;
