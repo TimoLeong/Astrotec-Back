@@ -34,32 +34,34 @@ public class MembreRest {
 	// Création d'un membre
 	@PostMapping("creation")
 	public int createMembre(@RequestBody Membre m) {
-		if (membreRepo.findByEmail(m.getEmail())!=null) {
-			return 1;
-		} else if (membreRepo.findByPseudo(m.getEmail())!=null){
-			return 2;
-		} else if (membreRepo.save(m) != null) {
-			return 0;
-		} else
+		if (membreRepo.findByEmail(m.getEmail()) != null && membreRepo.findByPseudo(m.getPseudo()) != null) {
 			return 3;
+		} else if (membreRepo.findByEmail(m.getEmail()) != null) {
+			return 1;
+		} else if (membreRepo.findByPseudo(m.getPseudo()) != null) {
+			return 2;
+		} else {
+			membreRepo.save(m);
+			return 0;
+		}
 	}
 
 	// Vérification d'un email déjà existant
 	@GetMapping("verification_email/{email}")
 	public boolean verifyUniqueEmail(@PathVariable String email) {
-		if (membreRepo.findByEmail(email)!=null)
+		if (membreRepo.findByEmail(email) != null)
 			return false;
 		else
 			return true;
 	}
-	
+
 	// Vérification d'un pseudo déjà existant
 	@GetMapping("verification_pseudo/{pseudo}")
 	public boolean verifyUniquePseudo(@PathVariable String pseudo) {
-		if (membreRepo.findByPseudo(pseudo)!=null)
+		if (membreRepo.findByPseudo(pseudo) != null)
 			return false;
 		else
 			return true;
 	}
-	
+
 }
