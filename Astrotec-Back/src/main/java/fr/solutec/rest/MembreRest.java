@@ -44,4 +44,16 @@ public class MembreRest {
 			return 3;
 	}
 
+	// Vérification d'un email déjà existant
+	@GetMapping("verification_email/{email}")
+	public Membre verifyEmail(@PathVariable String email) {
+		return membreRepo.findByEmail(email);
+	}
+	
+	// Vérification d'un pseudo déjà existant
+	@GetMapping("verification_pseudo/{pseudo}")
+	public Membre verifyPseudo(@PathVariable String pseudo) {
+		return membreRepo.findByEmail(pseudo);
+	}
+	
 }
