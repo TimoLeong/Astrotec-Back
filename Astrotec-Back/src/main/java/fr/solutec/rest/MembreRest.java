@@ -33,8 +33,15 @@ public class MembreRest {
 
 	// Création d'un membre
 	@PostMapping("creation")
-	public Membre createMembre(@RequestBody Membre m) {
-		return membreRepo.save(m);
+	public int createMembre(@RequestBody Membre m) {
+		if (membreRepo.findByEmail(m.getEmail())!=null) {
+			return 1;
+		} else if (membreRepo.findByPseudo(m.getEmail())!=null){
+			return 2;
+		} else if (membreRepo.save(m) != null) {
+			return 0;
+		} else
+			return 3;
 	}
 
 	// Vérification d'un email déjà existant
