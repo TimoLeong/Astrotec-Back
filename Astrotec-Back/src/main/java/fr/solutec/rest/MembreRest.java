@@ -11,29 +11,37 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.solutec.entities.Membre;
 import fr.solutec.repositories.MembreRepository;
 
-@RestController @CrossOrigin("*")
+@RestController
+@CrossOrigin("*")
 public class MembreRest {
 
 	@Autowired
 	private MembreRepository membreRepo;
-	
-	// Verification du login et mdp d'un utilisateur, retourne un utilisateur si vérifié et rien sinon
+
+	// Verification du login et mdp d'un utilisateur, retourne un utilisateur si
+	// vérifié et rien sinon
 	@PostMapping("login")
-	public Membre verifyLogin(@RequestBody Membre m){
+	public Membre verifyLogin(@RequestBody Membre m) {
 		return membreRepo.findByPseudoAndMdp(m.getPseudo(), m.getMdp());
 	}
-	
+
 	// Vérification du statut d'admin du membre
 	@GetMapping("isAdmin/{id}")
 	public boolean verifyAdminStatus(@PathVariable Long id) {
 		return membreRepo.findById(id).get().isAdmin();
 	}
-	
+
 	// Création d'un membre
 	@PostMapping("creation")
-	public Membre createMembre(@RequestBody Membre m) {
-		return membreRepo.save(m);
+	public int createMembre(@RequestBody Membre m) {
+		if (membreRepo.findByPseudo(m.getPseudo()) != null) {
+			return 1;
+		} else if (membreRepo.findByEmail(m.getEmail()) != null) {
+			return 2;
+		} else if (membreRepo.save(m) != null) {
+			return 0;
+		} else
+			return 3;
 	}
-	
-	
+
 }
