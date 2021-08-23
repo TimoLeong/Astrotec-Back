@@ -16,7 +16,7 @@ public class ProduitRest {
 	private ProduitRepository produitRepository;
 	
 	@GetMapping("produit")
-	public Iterable<Produit> getAllPanete() {
+	public Iterable<Produit> getAllProduit() {
 		return produitRepository.findAll();
 	}
 }
