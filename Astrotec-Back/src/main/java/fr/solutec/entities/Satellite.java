@@ -16,10 +16,10 @@ public class Satellite {
 
 	private Long planetid;
 	private String name;
-	private Long gm;
-	private Long radius;
-	private Long density;
-	private Long magnitude;
+	private Double gm;
+	private Double radius;
+	private Double density;
+	private Double magnitude;
  
  /*planet: owning planet of the satellite
 name: name of the satellite

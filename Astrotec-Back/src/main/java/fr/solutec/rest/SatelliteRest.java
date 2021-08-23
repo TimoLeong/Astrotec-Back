@@ -34,5 +34,6 @@ public class SatelliteRest {
 	private List<Satellite> getSatelliteByName(@PathVariable String name){
 		return satelliteRepo.findByName(name);
 	}
+	//@GetMapping("satellite")
 		
 }	
