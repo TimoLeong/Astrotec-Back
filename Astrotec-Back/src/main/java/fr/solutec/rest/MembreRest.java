@@ -63,5 +63,10 @@ public class MembreRest {
 		else
 			return true;
 	}
+	
+	@GetMapping("liste_membre")
+	public Iterable<Membre> listeMembre() {
+		return membreRepo.findAll();
+	}
 
 }
