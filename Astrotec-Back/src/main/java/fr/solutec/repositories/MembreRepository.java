@@ -14,5 +14,5 @@ public interface MembreRepository extends CrudRepository<Membre, Long> {
 	public Membre findByEmail(String email);
 	public void deleteById(Long id);
 	
-	//public List<Membre> isLogin();
+	//public List<Membre> isLogin();//
 }

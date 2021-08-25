@@ -15,7 +15,7 @@ import lombok.NonNull;
 @Entity
 
 @NoArgsConstructor @AllArgsConstructor @Data
-public class Messagerie {
+public class Message {
 	
 	@Id @GeneratedValue
 	private Long id;
