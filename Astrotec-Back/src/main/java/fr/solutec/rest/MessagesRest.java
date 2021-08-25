@@ -26,7 +26,7 @@ public class MessagesRest {
 		return messageRepos.findByText(t);
 	}
 	
-	//affichage d'un message
+	//affichage d'un message //
 	
 	@PostMapping("Message/text/{text}")
 	
