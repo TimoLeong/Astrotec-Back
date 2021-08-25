@@ -13,5 +13,5 @@ public interface MembreRepository extends CrudRepository<Membre, Long> {
 	public Membre findByPseudo(String pseudo);
 	public Membre findByEmail(String email);
 	
-	//public List<Membre> isLogin();
+	//public List<Membre> isLogin();//
 }

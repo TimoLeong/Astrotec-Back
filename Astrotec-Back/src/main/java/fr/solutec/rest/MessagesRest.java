@@ -22,8 +22,8 @@ public class MessagesRest {
 	
 	@GetMapping("Message/text/{text}")
 	
-	public String inputMessage(@PathVariable String t) {
-		return messageRepos.findByText(t);
+	public String inputMessage(@PathVariable String p) {
+		return messageRepos.findByText(p);
 	}
 	
 	//affichage d'un message //
