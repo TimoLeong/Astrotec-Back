@@ -11,6 +11,6 @@ public interface SujetsRepository extends CrudRepository<Sujets, Long> {
 
 	SujetsRepository findBySujet(@NonNull String sujet);
 
-	Timestamp getDate();
+	//Timestamp getDate();
 			
 }

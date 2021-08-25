@@ -20,6 +20,8 @@ public class SujetsRest {
 	@Autowired
 	private SujetsRepository sujetsRepos;
 	
+	
+	// afficher un sujet de forum 
 	@PostMapping("Sujets/sujet/{sujet}")
 	
 	public SujetsRepository addSujet(@RequestBody Sujets s) {
@@ -28,10 +30,10 @@ public class SujetsRest {
 	}
 	
 	// vérifier la date de publication
-	@GetMapping("Sujets/datePblication/{datePublication}")
+	//@GetMapping("Sujets/datePblication/{datePublication}")
 	
-	public Timestamp recupDate(@PathVariable Timestamp date) {
-		return sujetsRepos.getDate();
-	}
+	//public Timestamp recupDate(@PathVariable Timestamp date) {
+	//	return sujetsRepos.getDate();
+	//}
 
 }

@@ -40,9 +40,17 @@ public class Membre {
 	
 	@Value("${admin:false}")
 	private boolean admin;
+
 	
-	//@Value("${login:false}")
-	//private boolean login;
+	
+	
+//@Value("${login:false}")
+//private boolean login;
+
+	//public boolean isLogin() {
+		//return null;}
+	
+	
 	
 	
 	
