@@ -41,6 +41,11 @@ public class Membre {
 	@Value("${admin:false}")
 	private boolean admin;
 	
+	//@Value("${login:false}")
+	//private boolean login;
+	
+	
+	
 }
 
 //test2
