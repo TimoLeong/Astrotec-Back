@@ -29,17 +29,13 @@ public class SujetsRest {
 	}
 	
 	// vérifier la date de publication
-<<<<<<< HEAD
+
 	//@GetMapping("Sujets/datePblication/{datePublication}")
-	
 	//public Timestamp recupDate(@PathVariable Timestamp date) {
 	//	return sujetsRepos.getDate();
 	//}
-=======
-//	@GetMapping("Sujets/datePblication/{datePublication}")
-//	public Timestamp recupDate(@PathVariable Timestamp date) {
-//		return sujetsRepos.getDate();
-//	}
->>>>>>> branch 'master' of https://github.com/TimoLeong/Astrotec-Back.git
+
+
+
 
 }
