@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import fr.solutec.entities.Planet;
 import fr.solutec.entities.Satellite;
 import fr.solutec.repositories.SatelliteRepository;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,10 +33,10 @@ public class SatelliteRest {
 		return satelliteRepo.findByplanetid(id);
 	}
 	 
-	@GetMapping("satellite/name/{name}")
-	private List<Satellite> getSatelliteByName(@PathVariable String name){
-		return satelliteRepo.findByName(name);
+	@PutMapping("satellite/article/{id}")
+	public Satellite modifArticle(@RequestBody Satellite s, @PathVariable Long id) {
+		s.setId(id); 
+		return satelliteRepo.save(s);
 	}
-	//@GetMapping("satellite")
 		
 }	
