@@ -1,5 +1,7 @@
 package fr.solutec.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,37 +11,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.entities.Message;
-import fr.solutec.repositories.MessagesRepository;
+import fr.solutec.repositories.MessageRepository;
 
 @RestController
 @CrossOrigin("*")
 public class MessagesRest {
 	
 	@Autowired
-	private MessagesRepository messageRepos;
+	private MessageRepository messageRepo;
 	
-	//recupération d'un message
-	
-	@GetMapping("Message/text/{text}")
-	
-	public String inputMessage(@PathVariable String p) {
-		return messageRepos.findByText(p);
+	@GetMapping("message_from/{senderId}/{receiverId}")
+	public List<Message> getMessageReceivedFromSender(@PathVariable Long senderId, @PathVariable Long receiverId){
+		return messageRepo.findBySenderIdAndReceiverId(senderId, receiverId);
 	}
 	
-	//affichage d'un message //
-	
-	@PostMapping("Message/text/{text}")
-	
-	public int writeMessage(@RequestBody Message t) {
-		messageRepos.findById(t.getText());
-		messageRepos.save(t);
-			return 1;
+	// Sauvegarde d'un nouveau message
+	@PostMapping("envoi_message")
+	public Message newMessage(@RequestBody Message m) {
+		return messageRepo.save(m);
 	}
 	
-	// association emeteur du message 
-	// @GetMapping("Membre/pseudo/{pseudo}")
-	 
-	// public Message verifyMembre(@RequestBody )
-	
-	//heure d'envoie du message
 }

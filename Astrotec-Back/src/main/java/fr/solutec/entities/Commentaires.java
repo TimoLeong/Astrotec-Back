@@ -1,6 +1,7 @@
 package fr.solutec.entities;
 
 import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,22 +17,20 @@ import lombok.NonNull;
 @Entity
 
 @NoArgsConstructor @AllArgsConstructor @Data
-public class Message {
-	
+public class Commentaires {
 	@Id @GeneratedValue
 	private Long id;
 	
 	@ManyToOne @NonNull
-	private Membre sender;
-	
-	@ManyToOne @NonNull
-	private Membre receiver;
+	private Membre commente;
 	
 	@NonNull
-	private String message;
+	private String commentaire;
 	
 	@CreationTimestamp
-	private Timestamp dateSent;
+	private Timestamp dateCom;
 	
-	
+	@ManyToOne
+	private Sujets sujet;
+
 }

@@ -5,19 +5,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import lombok.Data;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@NoArgsConstructor @AllArgsConstructor @Data
-public class Produit {
+@Entity @NoArgsConstructor @AllArgsConstructor @Data
+public class Reponses {
+	
 	@Id @GeneratedValue
 	private Long id;
+	private String answer;
+	private boolean status;
 	
-	private String nom;
-	private String description;
-	private String image;
-	private double prix;
-	private int stock;
+	@ManyToOne
+	private Questions question;
+	
+
 }
