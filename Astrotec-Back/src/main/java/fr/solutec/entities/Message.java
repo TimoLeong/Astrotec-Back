@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -20,11 +21,17 @@ public class Message {
 	@Id @GeneratedValue
 	private Long id;
 	
+	@ManyToOne @NonNull
+	private Membre sender;
+	
+	@ManyToOne @NonNull
+	private Membre receiver;
+	
 	@NonNull
-	private String text;
+	private String message;
 	
 	@CreationTimestamp
-	private Timestamp dateEnvoi;
+	private Timestamp dateSent;
 	
 	
 }
