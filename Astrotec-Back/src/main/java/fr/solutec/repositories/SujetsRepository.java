@@ -14,6 +14,5 @@ public interface SujetsRepository extends CrudRepository<Sujets, Long> {
 
 	//Timestamp getDate();
 	//public Timestamp getDate();
-
 			
 }

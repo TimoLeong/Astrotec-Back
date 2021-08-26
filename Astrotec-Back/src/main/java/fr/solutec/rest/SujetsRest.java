@@ -29,13 +29,8 @@ public class SujetsRest {
 	}
 	
 	// vérifier la date de publication
-
 	//@GetMapping("Sujets/datePblication/{datePublication}")
 	//public Timestamp recupDate(@PathVariable Timestamp date) {
 	//	return sujetsRepos.getDate();
 	//}
-
-
-
-
 }
