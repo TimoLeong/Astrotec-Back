@@ -1,23 +1,36 @@
 package fr.solutec.entities;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Entity
+
 @NoArgsConstructor @AllArgsConstructor @Data
-public class Produit {
+public class Commentaires {
 	@Id @GeneratedValue
 	private Long id;
 	
-	private String nom;
-	private String description;
-	private String image;
-	private double prix;
-	private int stock;
+	@ManyToOne @NonNull
+	private Membre commente;
+	
+	@NonNull
+	private String commentaire;
+	
+	@CreationTimestamp
+	private Timestamp dateCom;
+	
+	@ManyToOne
+	private Sujets sujet;
+
 }

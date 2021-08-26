@@ -14,13 +14,17 @@ public class Satellite {
 	@Id@GeneratedValue
 	private Long id;
 
+	
+	
 	private Long planetid;
+	
 	private String name;
 	private Double gm;
 	private Double radius;
 	private Double density;
 	private Double magnitude;
- 
+	private Double albedo;
+	private String text;
  /*planet: owning planet of the satellite
 name: name of the satellite
 gm: GM (km3/sec2)
