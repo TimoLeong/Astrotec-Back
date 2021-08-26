@@ -9,8 +9,8 @@ import lombok.NonNull;
 
 public interface SujetsRepository extends CrudRepository<Sujets, Long> {
 
-	SujetsRepository findBySujet(@NonNull String sujet);
+	public SujetsRepository findBySujet(@NonNull String sujet);
 
-	//Timestamp getDate();
+	//public Timestamp getDate();
 			
 }

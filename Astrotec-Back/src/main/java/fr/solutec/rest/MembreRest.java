@@ -1,10 +1,13 @@
 package fr.solutec.rest;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -64,6 +67,29 @@ public class MembreRest {
 			return true;
 	}
 	
+	// Supprimer un membre
+	@GetMapping("supprimer/{id}")
+	public void supprimerMembre(@PathVariable Long id) {
+		membreRepo.deleteById(id);
+	}
+	
+	// Récupérer tous les membres
+	@GetMapping("liste_membre")
+	public Iterable<Membre> listeMembre() {
+		return membreRepo.findAll();
+	}
+
+	// Donner le role de admin à un membre
+	@PutMapping("make_admin/{id}")
+	public boolean makeAdmin(@PathVariable Long id) {
+		Optional<Membre> m = membreRepo.findById(id);
+		if (m.isPresent()) {
+			m.get().setAdmin(!m.get().isAdmin());
+			membreRepo.save(m.get());
+			return true;
+		} else
+			return false;
+	}
 	//@GetMapping("reccuperer_membre/{id}")
 	 
 	

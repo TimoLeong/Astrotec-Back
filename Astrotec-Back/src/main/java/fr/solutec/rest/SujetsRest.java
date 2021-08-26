@@ -23,17 +23,23 @@ public class SujetsRest {
 	
 	// afficher un sujet de forum 
 	@PostMapping("Sujets/sujet/{sujet}")
-	
 	public SujetsRepository addSujet(@RequestBody Sujets s) {
 		sujetsRepos.save(s);
 		return sujetsRepos.findBySujet(s.getSujet());
 	}
 	
 	// vérifier la date de publication
+<<<<<<< HEAD
 	//@GetMapping("Sujets/datePblication/{datePublication}")
 	
 	//public Timestamp recupDate(@PathVariable Timestamp date) {
 	//	return sujetsRepos.getDate();
 	//}
+=======
+//	@GetMapping("Sujets/datePblication/{datePublication}")
+//	public Timestamp recupDate(@PathVariable Timestamp date) {
+//		return sujetsRepos.getDate();
+//	}
+>>>>>>> branch 'master' of https://github.com/TimoLeong/Astrotec-Back.git
 
 }
