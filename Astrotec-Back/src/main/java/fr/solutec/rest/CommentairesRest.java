@@ -33,7 +33,7 @@ public class CommentairesRest {
 
 	}
 	
-	@GetMapping("commentaires_from/{sujetId")
+	@GetMapping("commentaires_from/{sujetId}")
 	public List<Commentaires> getCommentairesReceivedFromSujet(@PathVariable Long sujetId){
 		return commentairesRepo.findBySujetId(sujetId);
 	}
