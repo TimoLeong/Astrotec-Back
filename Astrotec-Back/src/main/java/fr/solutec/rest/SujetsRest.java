@@ -1,7 +1,5 @@
 package fr.solutec.rest;
 
-import java.sql.Timestamp;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,19 +16,19 @@ import fr.solutec.repositories.SujetsRepository;
 public class SujetsRest {
 	
 	@Autowired
-	private SujetsRepository sujetsRepos;
+	private SujetsRepository sujetsRepo;
 	
 	
 	// afficher un sujet de forum 
-	@PostMapping("Sujets/sujet/{sujet}")
-	public SujetsRepository addSujet(@RequestBody Sujets s) {
-		sujetsRepos.save(s);
-		return sujetsRepos.findBySujet(s.getSujet());
+	@GetMapping("from_sujets/{sujet}")
+	public SujetsRepository addSujet(@RequestBody Long auteurId) {
+		return sujetsRepo.findByAuteurId(auteurId);
+	}
+	//sauvegarde sujet
+	
+	@PostMapping("save_sujets")
+	public Sujets newSujets(@RequestBody Sujets s) {
+		return sujetsRepo.save(s);
 	}
 	
-	// vérifier la date de publication
-	//@GetMapping("Sujets/datePblication/{datePublication}")
-	//public Timestamp recupDate(@PathVariable Timestamp date) {
-	//	return sujetsRepos.getDate();
-	//}
 }
