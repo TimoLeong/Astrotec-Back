@@ -52,5 +52,10 @@ public class ProduitRest {
 		}
 	}
 	
+	@GetMapping("produit/delete/{id}")
+	public void supprimerProduit(@PathVariable Long id) {
+		produitRepository.deleteById(id);
+	}
+	
 	
 }

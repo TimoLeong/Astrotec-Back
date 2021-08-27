@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class Commande {
 	private Timestamp dateCreation;
 	
 	@ManyToOne
-	private Membre membre;	
+	private Membre membre;
+	
 	
 }

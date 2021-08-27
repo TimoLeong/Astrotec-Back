@@ -17,10 +17,10 @@ public class ProduitsCommande {
 	@Id @GeneratedValue
 	private Long id;
 	
-	@MapsId("produitId") @ManyToOne
+	@ManyToOne
 	private Produit produit;
 	
-	@MapsId("commandeId") @ManyToOne
+	@ManyToOne
 	private Commande commande;
 	
 	private int quantite;
