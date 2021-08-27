@@ -22,8 +22,8 @@ public class MessagesRest {
 	
 	@GetMapping("message_from/{senderId}/{receiverId}")
 	public List<Message> getMessageReceivedFromSender(@PathVariable Long senderId, @PathVariable Long receiverId){
-		List<Message> res = messageRepo.findBySenderIdAndReceiverId(receiverId, senderId);
-		res.addAll(messageRepo.findBySenderIdAndReceiverId(senderId, receiverId));
+		List<Message> res = messageRepo.findBySenderIdAndReceiverId(senderId, receiverId);
+		res.addAll(messageRepo.findBySenderIdAndReceiverId(receiverId, senderId));
 		return res;
 	}
 	
