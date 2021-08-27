@@ -22,7 +22,9 @@ public class MessagesRest {
 	
 	@GetMapping("message_from/{senderId}/{receiverId}")
 	public List<Message> getMessageReceivedFromSender(@PathVariable Long senderId, @PathVariable Long receiverId){
-		return messageRepo.findBySenderIdAndReceiverId(senderId, receiverId);
+		List<Message> res = messageRepo.findBySenderIdAndReceiverId(receiverId, senderId);
+		res.addAll(messageRepo.findBySenderIdAndReceiverId(senderId, receiverId));
+		return res;
 	}
 	
 	// Sauvegarde d'un nouveau message
