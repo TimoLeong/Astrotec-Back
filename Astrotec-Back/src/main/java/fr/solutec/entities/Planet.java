@@ -43,7 +43,7 @@ public class Planet {
 	private Double number_of_moons;
 	private Boolean has_ring_system;
 	private Boolean has_global_magnetic_field;
-	@Value("${some.key:''}") @Column(length = 1000)
+	@Value("${some.key:''}") @Column(length = 5000)
 	private String text;  
 /*
 Mass (10^24kg)
