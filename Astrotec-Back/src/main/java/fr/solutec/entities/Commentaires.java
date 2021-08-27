@@ -1,9 +1,7 @@
 package fr.solutec.entities;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,22 +15,22 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Entity
+
 @NoArgsConstructor @AllArgsConstructor @Data
-public class Sujets {
-	
+public class Commentaires {
 	@Id @GeneratedValue
 	private Long id;
 	
+	@ManyToOne @NonNull
+	private Membre commente;
 	
-	@NonNull @Column
-	private String sujet;
+	@NonNull
+	private String commentaire;
 	
 	@CreationTimestamp
-	private Timestamp datePublication;
+	private Timestamp dateCom;
 	
 	@ManyToOne
-	private Membre auteur;
-	
-	
+	private Sujets sujet;
 
 }

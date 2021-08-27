@@ -28,10 +28,5 @@ public class ReponsesRest {
 	public Iterable<Reponses> getAllReponses(){
 		return reponsesRepos.findAll();
 	}
-	
-	@GetMapping("reponses/questions/{id}")
-	public List<Reponses> getAllResponsesInQuestion(@PathVariable Long id){
-		return reponsesRepos.findByQuestionId(id);
-	}
 
 }
