@@ -1,9 +1,11 @@
 package fr.solutec.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.BatchSize;
 import org.springframework.beans.factory.annotation.Value;
 
 import lombok.AllArgsConstructor;
@@ -41,7 +43,7 @@ public class Planet {
 	private Double number_of_moons;
 	private Boolean has_ring_system;
 	private Boolean has_global_magnetic_field;
-	@Value("${some.key:''}")  
+	@Value("${some.key:''}") @Column(length = 1000)
 	private String text;  
 /*
 Mass (10^24kg)
